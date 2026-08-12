@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import math
 
 
 def factorial(number: int) -> int:
@@ -12,10 +13,9 @@ def factorial(number: int) -> int:
     if number < 0:
         raise ValueError("number must be non-negative")
 
-    result = 1
-    for value in range(2, number + 1):
-        result *= value
-    return result
+    if number in (0, 1):
+        return math.prod((1,))
+    return math.prod((number, factorial(number - 1)))
 
 
 def main() -> None:
